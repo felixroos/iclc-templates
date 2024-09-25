@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Kabelsalat: Live Coding Audio and Video Graphs on the Web</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/iclc.css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">Kabelsalat: Live Coding Audio and Video Graphs on the
+Web</h1>
+<ul id="authorlist">
+<li>true</li>
+</ul>
+</div>
+
+<h2 class="abstract">Abstract</h2>
+<div id="abstract">
+<p>Replace this text with a maximum 300 word abstract. You’ll find it in
+the ‘metadata block’ at the top of your markdown document), be sure that
+each line of the abstract is indented.</p>
+</div>
+
+<h1 data-number="1" id="outline"><span
+class="header-section-number">1</span> Outline</h1>
+<h2 data-number="1.1"
+id="domain-specific-languages-in-live-coding"><span
+class="header-section-number">1.1</span> Domain Specific Languages in
+Live Coding</h2>
+<ul>
+<li><p>In Live Coding, the primary UI is language.</p></li>
+<li><p>The Language is a central element of communication between
+machine, performer and audience</p></li>
+<li><p>Language is a thinking tool, shaping how we perceive the
+art</p></li>
+<li><p>A good Live Coding Language is often</p>
+<ul>
+<li>Declarative</li>
+<li>Terse</li>
+<li>Abstract</li>
+</ul></li>
+<li><p>These attributes are in contrast to the code that is required to
+manipulate the low level system components (speakers, monitors,
+etc..):</p>
+<ul>
+<li>Imperative</li>
+<li>Verbose</li>
+<li>Concrete</li>
+</ul></li>
+<li><p>When creating a Live Coding Language, the main task of the
+creator is to bridge that gap between abstract and concrete, between the
+world of ideas and the world of hardware registers.</p></li>
+<li><p>A DSL is either</p>
+<ul>
+<li>external: a custom language with its own parser.</li>
+<li>embedded / internal: a language implemented within an existing host
+language</li>
+</ul></li>
+<li><p>Examples:</p>
+<ul>
+<li>Tidal: internal DSL within Haskell + External DSL for Mini
+Notation</li>
+</ul></li>
+<li><p>External Ideas:</p>
+<ul>
+<li>“programming language as instrument” <a
+href="https://homes.create.aau.dk/dano/nime17/papers/0052/paper0052.pdf"
+class="uri">https://homes.create.aau.dk/dano/nime17/papers/0052/paper0052.pdf</a>
+<ul>
+<li>many good sources..</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 data-number="1.2" id="audio-video-and-language-graphs"><span
+class="header-section-number">1.2</span> Audio, Video and Language
+Graphs</h2>
+<ul>
+<li>In Audio Programming, the lowest abstraction is a constant stream of
+Numbers that describe speaker positions in time.</li>
+<li>In Graphics Programming, it is a stream of numbers that describes
+pixel colors in time and space.</li>
+<li>We can directly engage on that level, which is what Bytebeat does.
+Also see IBNIZ for audio visual example</li>
+<li>Engaging on that level leaves us with nothing but arithmetic, which
+is not very declarative (but cool anyway)</li>
+<li>A commonly chosen abstraction for audio are graphs, which describe
+the interaction of signal processing components.</li>
+<li>Examples: SuperCollider, Pure Data, Max/MSP</li>
+<li>Programming Languages are closely related to graphs, as the source
+code of a program is often translated into an Abstract Syntax Tree at
+compile time:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">out</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saw</span>(<span class="dv">55</span>)<span class="op">,</span> <span class="co">// sawtooth wave</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">800</span> <span class="co">// filter frequency</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div>
+<pre><code>CallExpression: out
+  CallExpression: filter
+    CallExpression: saw
+      Literal: 55
+    Literal: 800</code></pre>
+<p>Trees are subsets of graphs, and conceptually, variables can turn a
+tree into a graph:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> frequency <span class="op">=</span> <span class="dv">55</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">out</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saw</span>(frequency) <span class="op">+</span> <span class="fu">saw</span>(frequency <span class="op">+</span> <span class="dv">1</span>)<span class="op">,</span> <span class="co">//</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">800</span> <span class="co">//</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div>
+<p>(see <a href="https://www.tldraw.com/">tldraw</a> for graphic)</p>
+<ul>
+<li>While it is still a tree on the language level, it is conceptually a
+graph, or more specifically, a directed acyclic graph (DAG).</li>
+<li>Graphs like this are called Data Flow Graphs (DFG), which are often
+part of compiler optimizations.</li>
+</ul>
+<h2 data-number="1.3" id="constructing-graphs"><span
+class="header-section-number">1.3</span> Constructing Graphs</h2>
+<p>To turn function alls into a graph is simple:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="bu">Node</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span>(type<span class="op">,</span> <span class="op">...</span>ins) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">type</span> <span class="op">=</span> type<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">ins</span> <span class="op">=</span> ins<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> out <span class="op">=</span> (input) <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Node</span>(<span class="st">&quot;out&quot;</span><span class="op">,</span> input)<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> filter <span class="op">=</span> (input<span class="op">,</span> frequency) <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Node</span>(<span class="st">&quot;filter&quot;</span><span class="op">,</span> input<span class="op">,</span> frequency)<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> saw <span class="op">=</span> (frequency) <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Node</span>(<span class="st">&quot;saw&quot;</span><span class="op">,</span> frequency)<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> graph <span class="op">=</span> <span class="fu">out</span>(<span class="fu">filter</span>(<span class="fu">saw</span>(<span class="dv">55</span>)<span class="op">,</span> <span class="dv">800</span>))<span class="op">;</span></span></code></pre></div>
+<p>This is the data structure we get:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;out&quot;</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;ins&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;filter&quot;</span><span class="fu">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;ins&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;saw&quot;</span><span class="fu">,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&quot;ins&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="dv">55</span><span class="ot">]</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="dv">800</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>As a drawing:</p>
+<ul>
+<li>insert graphviz here</li>
+</ul>
+<h3 data-number="1.3.1" id="method-chaining"><span
+class="header-section-number">1.3.1</span> Method Chaining</h3>
+<p>Although it is still a simple graph, the above graph defintion is
+already very nested. To avoid nesting, we can implement method chaining
+like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> register <span class="op">=</span> (type<span class="op">,</span> fn) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Node</span><span class="op">.</span><span class="at">prototype</span>[type] <span class="op">=</span> <span class="kw">function</span> (<span class="op">...</span>args) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">fn</span>(<span class="kw">this</span><span class="op">,</span> <span class="op">...</span>args)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> fn<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> out <span class="op">=</span> <span class="fu">register</span>(<span class="st">&quot;out&quot;</span><span class="op">,</span> (input) <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Node</span>(<span class="st">&quot;out&quot;</span><span class="op">,</span> input))<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> filter <span class="op">=</span> <span class="fu">register</span>(<span class="st">&quot;filter&quot;</span><span class="op">,</span> (input<span class="op">,</span> f) <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Node</span>(<span class="st">&quot;filter&quot;</span><span class="op">,</span> input<span class="op">,</span> f))<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> saw <span class="op">=</span> <span class="fu">register</span>(<span class="st">&quot;saw&quot;</span><span class="op">,</span> (frequency) <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Node</span>(<span class="st">&quot;saw&quot;</span><span class="op">,</span> frequency))<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> graph <span class="op">=</span> <span class="fu">saw</span>(<span class="dv">55</span>)<span class="op">.</span><span class="fu">filter</span>(<span class="dv">800</span>)<span class="op">.</span><span class="fu">out</span>()<span class="op">;</span></span></code></pre></div>
+<p>Now our graph definition is flat, following the same order as the
+graph visualization. The idea is simple: A Node can be constructed in 2
+ways:</p>
+<ol type="1">
+<li>by calling a top-level function</li>
+<li>by calling a method on an existing Node, which is then used as the
+first input</li>
+</ol>
+<h2 data-number="1.4" id="compiling-graphs"><span
+class="header-section-number">1.4</span> Compiling Graphs</h2>
+<p>Audio and Video Synthesis are often resource intensive, so the
+running code needs to be as efficient as possible. We can leverage the
+similarities between Abstract Syntax Tree We can turn the above graph
+structures into discrete imperative steps by compiling it to a target
+language of our choice.</p>
+<p>noisecraft, genish, hydra</p>
+<h2 data-number="1.5" id="feedback"><span
+class="header-section-number">1.5</span> Feedback</h2>
+<ul>
+<li>In audio and video synthesis, feedback is often used for different
+kinds of effects. In a graph, this is only possible with cycles. Here’s
+one way we could express a cycle, similar to how feedback works in
+Hydra:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">out</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sine</span>(<span class="dv">200</span>) <span class="op">+</span> <span class="fu">src</span>(o0)<span class="op">.</span><span class="fu">delay</span>(<span class="fl">0.5</span>) <span class="op">*</span> <span class="fl">0.5</span><span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  o0 <span class="co">//</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div>
+<p><a
+href="https://kabel.salat.dev/#c2luZSgpLmFkZCh4PT54LmRlbGF5KC41KS5tdWwoLjgpKS5vdXQoKQ%3D%3D"
+class="uri">https://kabel.salat.dev/#c2luZSgpLmFkZCh4PT54LmRlbGF5KC41KS5tdWwoLjgpKS5vdXQoKQ%3D%3D</a></p>
+<h2 data-number="1.6" id="bibliographic-references"><span
+class="header-section-number">1.6</span> Bibliographic references</h2>
+<p>Pandoc accepts bibliographic databases in a range of formats, so make
+sure you have the right extension on your file.</p>
+<p>Format File extension</p>
+<hr />
+<p>MODS .mods BibLaTeX .bib BibTeX .bibtex RIS .ris EndNote .enl EndNote
+XML .xml ISI .wos MEDLINE .medline Copac .copac JSON citeproc .json</p>
+<p>Table: Supported bibliography formats with file extension.</p>
+<p>Authors may be referenced in two ways; inline, e.g. <span
+class="citation" data-cites="Schwitters32">Schwitters (1932)</span>
+wrote the Ursonate sound poem, or in parenthesis, e.g. Ursonate is a
+sound poem <span class="citation" data-cites="Schwitters32">(Schwitters
+1932)</span>. Multiple references should be grouped together like so
+<span class="citation"
+data-cites="Schwitters32 Miller56 Greenewalt46">(Schwitters 1932; Miller
+1956; Greenewalt 1946)</span>.</p>
+<p>The pandoc command given in the <a href="#pandoc">above section</a>
+will automatically render your references according to Chicago
+author-date style.</p>
+<p>At the head of the markdown source file for this template, you will
+see an entry for “bibliography” that points to the file
+<code>references.bib</code>. There, you’ll find examples of bibliography
+entries in BibLaTex format, including examples for articles, books, book
+chapters and items from conference proceedings.</p>
+<h2 data-number="1.7" id="code"><span
+class="header-section-number">1.7</span> Code</h2>
+<p>We have chosen a single column layout to better support code examples
+without having to break lines. The following shows how to include a code
+example with syntax highlighting:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">$</span> every <span class="dv">3</span> (iter <span class="dv">4</span>) <span class="op">$</span> brak <span class="op">$</span> <span class="st">&quot;bd [sn [[sn bd] sn]]*1/3&quot;</span></span></code></pre></div>
+<p>For more information please visit this page:
+[https://hackage.haskell.org/package/skylighting]</p>
+<h2 data-number="1.8" id="figures"><span
+class="header-section-number">1.8</span> Figures</h2>
+<p>Images should be included as figures, with captions provided and
+formatted as shown in Figure 1. Be prepared for the page layout and
+image size to be changed during the editing and layout process, and
+consider this when referring to the figures in the text.</p>
+<figure>
+<img src="images/pomeroy.jpg"
+alt="A descriptive caption should be given for all figures, understandable without reference to the rest of the article." />
+<figcaption aria-hidden="true"><em>A descriptive caption should be given
+for all figures, understandable without reference to the rest of the
+article.</em></figcaption>
+</figure>
+<h1 data-number="2" id="conclusion"><span
+class="header-section-number">2</span> Conclusion</h1>
+<p>We look forward to receiving your completed papers. Submission is
+through EasyChair only (see <a
+href="https://iclc.toplap.org/2025">https://iclc.toplap.org/2025</a>).
+Please do not send papers directly by e-mail. In all cases, please
+submit a PDF version of your paper for peer review. At a later stage in
+preparing the proceedings, we may ask for the markdown/docx/odt versions
+of your paper.</p>
+<h2 data-number="2.1" id="acknowledgments"><span
+class="header-section-number">2.1</span> Acknowledgments</h2>
+<p>At the end of the Conclusions, acknowledgements to people, projects,
+funding agencies, etc. can be included after the second-level heading
+“Acknowledgments”.</p>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-Greenewalt46" class="csl-entry" role="listitem">
+Greenewalt, Mary H. 1946. <em>Nourathar, the Fine Art of Light Color
+Playing</em>. Philadelphia. Pa. Westbrook.
+</div>
+<div id="ref-Miller56" class="csl-entry" role="listitem">
+Miller, G. A. 1956. <span>“The Magical Number Seven Plus or Minus Two:
+Some Limits on Our Capacity for Processing Information.”</span>
+<em>Psychological Review</em> 63 (2): 81–97.
+</div>
+<div id="ref-Schwitters32" class="csl-entry" role="listitem">
+Schwitters, Kurt. 1932. <span>“Ursonate.”</span> <em>Merz</em> 24.
+</div>
+</div>
+</body>
+</html>

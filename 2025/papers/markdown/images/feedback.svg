@@ -1,0 +1,80 @@
+<svg width="410pt" height="168pt" viewBox="0.00 0.00 410.08 167.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 163.8)">
+  <!-- 0 -->
+  <!-- 1 -->
+  <g id="1" class="node">
+  <title>1</title>
+  <ellipse fill="none" stroke="black" cx="246.59" cy="-145.4" rx="25.21" ry="14.4"></ellipse>
+  <text text-anchor="middle" x="246.59" y="-142.4" font-family="monospace" font-size="10.00" fill="black">out 0</text>
+  </g>
+  <!-- 2 -->
+  <g id="2" class="node">
+  <title>2</title>
+  <ellipse fill="none" stroke="black" cx="141.6" cy="-72.4" rx="21.15" ry="14.4"></ellipse>
+  <text text-anchor="middle" x="141.6" y="-69.4" font-family="monospace" font-size="10.00" fill="black">add</text>
+  </g>
+  <!-- 2&#45;&gt;1 -->
+  <g id="0" class="edge">
+  <title>2-&gt;1</title>
+  <path fill="none" stroke="black" d="M156.01,-83.33C168.74,-93.55 188.55,-109.04 206.53,-121.4 210.33,-124.01 214.41,-126.68 218.45,-129.23"></path>
+  <polygon fill="black" stroke="black" points="216.59,-132.19 226.94,-134.47 220.27,-126.24 216.59,-132.19"></polygon>
+  </g>
+  <!-- 6 -->
+  <g id="6" class="node">
+  <title>6</title>
+  <ellipse fill="none" stroke="black" cx="246.59" cy="-14.4" rx="40.06" ry="14.4"></ellipse>
+  <text text-anchor="middle" x="246.59" y="-11.4" font-family="monospace" font-size="10.00" fill="black">delay 0.20</text>
+  </g>
+  <!-- 2&#45;&gt;6 -->
+  <g id="0" class="edge">
+  <title>2-&gt;6</title>
+  <path fill="none" stroke="black" d="M151.12,-59.49C158.01,-50.05 168.56,-37.66 180.75,-30.4 186.04,-27.25 191.93,-24.71 197.93,-22.68"></path>
+  <polygon fill="black" stroke="black" points="198.7,-26.1 207.32,-19.95 196.74,-19.38 198.7,-26.1"></polygon>
+  <text text-anchor="middle" x="184.64" y="-33.4" font-family="monospace" font-size="10.00" fill="black">in</text>
+  </g>
+  <!-- 10 -->
+  <g id="10" class="node">
+  <title>10</title>
+  <ellipse fill="none" stroke="black" cx="246.59" cy="-98.4" rx="25.21" ry="14.4"></ellipse>
+  <text text-anchor="middle" x="246.59" y="-95.4" font-family="monospace" font-size="10.00" fill="black">out 1</text>
+  </g>
+  <!-- 2&#45;&gt;10 -->
+  <g id="0" class="edge">
+  <title>2-&gt;10</title>
+  <path fill="none" stroke="black" d="M161.97,-77.29C176.08,-80.85 195.54,-85.77 212.14,-89.96"></path>
+  <polygon fill="black" stroke="black" points="211.06,-93.29 221.61,-92.35 212.77,-86.51 211.06,-93.29"></polygon>
+  </g>
+  <!-- 3 -->
+  <g id="3" class="node">
+  <title>3</title>
+  <ellipse fill="none" stroke="black" cx="38.33" cy="-72.4" rx="38.33" ry="14.4"></ellipse>
+  <text text-anchor="middle" x="38.33" y="-69.4" font-family="monospace" font-size="10.00" fill="black">impulse 1</text>
+  </g>
+  <!-- 3&#45;&gt;2 -->
+  <g id="0" class="edge">
+  <title>3-&gt;2</title>
+  <path fill="none" stroke="black" d="M77.04,-72.4C87.55,-72.4 98.85,-72.4 108.97,-72.4"></path>
+  <polygon fill="black" stroke="black" points="108.67,-75.9 118.67,-72.4 108.67,-68.9 108.67,-75.9"></polygon>
+  <text text-anchor="middle" x="98.56" y="-75.4" font-family="monospace" font-size="10.00" fill="black">in</text>
+  </g>
+  <!-- 5 -->
+  <g id="5" class="node">
+  <title>5</title>
+  <ellipse fill="none" stroke="black" cx="366.26" cy="-52.4" rx="35.83" ry="14.4"></ellipse>
+  <text text-anchor="middle" x="366.26" y="-49.4" font-family="monospace" font-size="10.00" fill="black">mul 0.80</text>
+  </g>
+  <!-- 5&#45;&gt;2 -->
+  <g id="1" class="edge">
+  <title>5-&gt;2</title>
+  <path fill="none" stroke="black" d="M330.93,-55.48C288.1,-59.33 215.49,-65.85 174.05,-69.57"></path>
+  <polygon fill="black" stroke="black" points="173.9,-66.07 164.26,-70.45 174.53,-73.05 173.9,-66.07"></polygon>
+  </g>
+  <!-- 6&#45;&gt;5 -->
+  <g id="0" class="edge">
+  <title>6-&gt;5</title>
+  <path fill="none" stroke="black" d="M281.52,-21.74C291.56,-24.19 302.52,-27.13 312.43,-30.4 318.66,-32.45 325.18,-34.91 331.44,-37.42"></path>
+  <polygon fill="black" stroke="black" points="329.64,-40.46 340.22,-41.07 332.33,-34 329.64,-40.46"></polygon>
+  <text text-anchor="middle" x="308.54" y="-33.4" font-family="monospace" font-size="10.00" fill="black">in</text>
+  </g>
+  </g>
+  </svg>
