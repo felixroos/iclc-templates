@@ -7,18 +7,34 @@
   url          = {https://doi.org/10.5281/zenodo.6767578}
 }
 
-@proceedings{Roberts18,
+@inproceedings{Roberts18,
+  abstract = {The introduction of AudioWorklets to the Web Audio API greatly expands the potential of browser-based audio programming. However, managing state between the various threads AudioWorklets occupy entails a fair amount of complexity, particularly when designing dynamic music programming environments where exact digital signal processing requirements cannot be known ahead of time. Such environments are commonly used for live coding performance, interactive composition, and coding playgrounds for musical experimentation. Our research explores metaprogramming strategies to create AudioWorklet implementations for two JavaScript libraries, Genish.js and Gibberish.js. These strategies help hide the complexities of inter-thread communication from end-users and enable a variety of signal processing and interaction techniques that would otherwise be difficult to achieve.},
+  address = {Berlin, Germany},
   author = {Roberts, Charles},
-  publisher = {Web Audio Conference},
+  booktitle = {Proceedings of the International Web Audio Conference},
+  editor = {Monschke, Jan and Guttandin, Christoph and Schnell, Norbert and Jenkinson, Thomas and Schaedler, Jack},
+  month = {September},
+  pages = {},
+  publisher = {TU Berlin},
+  series = {WAC '18},
   title = {Metaprogramming Strategies for AudioWorklets},
-  year = {2018}
+  year = {2018},
+  ISSN = {2663-5844}
 }
   
-@proceedings{Roberts17,
+@inproceedings{Roberts17,
+  abstract = {Due to current browser limitations, most synthesis in the browser is currently performed using the block-rate nodes included in the WebAudio API. However, block-rate processing of audio graphs precludes many types of synthesis in addition to limiting both the accuracy and flexibility of scheduling. We describe alternative strategies for performing efficient, per-sample processing of audio graphs in the browser using the ScriptProcessor node, affording synthesis techniques that are not commonly found in existing JavaScript audio libraries. We introduce a new library, Genish.js, that provides unit generators for common low-level synthesis tasks and acts as a compiler for signal processing functions; this library is a loose port of the Gen framework for Max/MSP. We used Genish.js to update a higher-level library for audio programming, Gibberish.js, realizing improvements to both efficiency and audio quality. Preliminary benchmarks comparing the performance of Genish.js audio graphs to equivalent graphs made with the WebAudio API show promising results.},
+  address = {London, United Kingdom},
   author = {Roberts, Charles},
-  publisher = {Web Audio Conference},
+  booktitle = {Proceedings of the International Web Audio Conference},
+  editor = {Thalmann, Florian and Ewert, Sebastian},
+  month = {August},
+  pages = {},
+  publisher = {Queen Mary University of London},
+  series = {WAC '17},
   title = {Strategies for Per-Sample Processing of Audio Graphs in the Browser},
-  year = {2017}
+  year = {2017},
+  ISSN = {2663-5844}
 }
 
 @inproceedings{glicol,
@@ -37,10 +53,10 @@
 }
 
 @book{juliusfeedback,
-  author   = "Smith, Julius O.",
-	TITLE = "Physical audio signal processing : for virtual musical instruments and audio effects",
-	PUBLISHER = {https://ccrma.stanford.edu/~jos/pasp/},
-	YEAR = "2010",
+  author    = "Smith, Julius O.",
+	title     = "Physical audio signal processing : for virtual musical instruments and audio effects",
+	publisher = {https://ccrma.stanford.edu/~jos/pasp/},
+	year      = "2010",
 }
 
 @incollection{jitlibscbook,
@@ -81,13 +97,17 @@
   eprint = {https://direct.mit.edu/comj/article-pdf/26/4/61/1853641/014892602320991383.pdf},
 }
 
-@misc{gnuafferogeneral,
-	author = {},
-	title = {{G}{N}{U} {A}ffero {G}eneral {P}ublic {L}icense - {G}{N}{U} {P}roject - {F}ree {S}oftware {F}oundation --- gnu.org},
-	howpublished = {\url{https://www.gnu.org/licenses/agpl-3.0.html}},
-	year = {},
-	note = {[Accessed 26-09-2024]},
-}
+
+@misc{agpl,
+  title        = {GNU Affero General Public License},
+  version      = {3},
+  shorthand    = {AGPL},
+  organization = {Free Software Foundation},
+  url          = {https://www.gnu.org/licenses/agpl-3.0.en.html},
+  pagination   = {section},
+  language     = {english},
+  date         = {2007-11-19}
+  }
 
 @inproceedings{Choi2018AudioworkletTF,
   title={Audioworklet: the Future of Web Audio},
@@ -104,6 +124,16 @@
   url={https://github.com/ojack/hydra}
 }
 
+@inproceedings{jack2019,
+  title = {Hydra: Live Coding Networked Visuals},
+  author = {Jack, Olivia},
+  booktitle = {Proceedings of the Fourth International Conference on Live Coding},
+  pages = {353--354},
+  year = {2019},
+  url = {https://github.com/iclc/iclc.github.io/tree/master/2019/proceedingsICLC2019.pdf.zip},
+}
+
+
 @software{punctual,
   title={Hydra},
   author={Ogborn, David},
@@ -118,10 +148,11 @@ title = {Pure Data: another integrated computer music environment}
 }
 
 @software{noisecraft,
-  title={NoiseCraft},
   author={Chevalier-Boisvert, Maxime},
+  title={NoiseCraft},
+  url={https://github.com/maximecb/noisecraft},
+  version={0.0.1},
   year={2021},
-  url={https://github.com/maximecb/noisecraft}
 }
 
 @software{cables,
@@ -173,15 +204,33 @@ title={Multichannel Expansion Documentation},
 url={https://doc.sccode.org/Guides/Multichannel-Expansion.html}
 }
 
-
-@proceedings{tidal,
-  title        = {Tidal - Pattern Language for Live Coding of Music},
-  year         = 2017,
-  publisher    = {Zenodo},
-  month        = aug,
-  doi          = {10.5281/zenodo.849841},
-  url          = {https://doi.org/10.5281/zenodo.849841}
+@inproceedings{tidal,
+  title={Tidal--pattern language for the live coding of music},
+  author={McLean, Alex and Wiggins, Geraint},
+  booktitle={Proceedings of the 7th sound and music computing conference},
+  url = {https://doi.org/10.5281/zenodo.849841},
+  pages={331--334},
+  year={2010}
 }
+
+@inproceedings{tidal2,
+  author = {McLean, Alex},
+  title = {Making programming languages to dance to: live coding with tidal},
+  year = {2014},
+  isbn = {9781450330398},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/2633638.2633647},
+  doi = {10.1145/2633638.2633647},
+  abstract = {Live coding of music has grown into a vibrant international community of research and practice over the past decade, providing a new research domain where computer science blends with the performing arts. In this paper the domain of live coding is described, with focus on the programming language design challenges involved, and the ways in which a functional approach can meet those challenges. This leads to the introduction of Tidal 0.4, a Domain Specific Language embedded in Haskell. This is a substantial restructuring of Tidal, which now represents musical pattern as functions from time to events, inspired by Functional Reactive Programming.},
+  booktitle = {Proceedings of the 2nd ACM SIGPLAN International Workshop on Functional Art, Music, Modeling \& Design},
+  pages = {63–70},
+  numpages = {8},
+  keywords = {music, live coding, domain specific languages},
+  location = {Gothenburg, Sweden},
+  series = {FARM '14}
+}
+
 
 @misc{agpl,
 	author = {},
